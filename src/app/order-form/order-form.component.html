@@ -1,0 +1,46 @@
+
+<div class="inputBoxes">
+  <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" placeholder="Name" type="text" required
+             [(ngModel)]="model.name" name="name" #nameInput="ngModel">
+      <div [hidden]="nameInput.valid || nameInput.pristine">
+        Please enter the name of the recipient
+      </div>
+    </div>
+
+    <div>
+      <label for="age">Age</label>
+      <input id="age" placeholder="Age" type="number" min="13" max="150" required
+             [(ngModel)]="model.age" name="age" #ageInput="ngModel">
+      <div [hidden]="ageInput.valid || ageInput.pristine">
+        Please enter the age of the recipient
+      </div>
+    </div>
+
+    <div>
+      <label for="size">Size</label>
+      <select id="size" required
+              [(ngModel)]="model.size" name="size" #sizeInput="ngModel">
+        <option *ngFor="let item of sizeArray" [value]="item">{{item}}</option>
+      </select>
+      <div [hidden]="sizeInput.valid || sizeInput.pristine">
+        Please enter the desired size
+      </div>
+    </div>
+
+    <div>
+      <label for="colour">Colour</label>
+      <select id="colour" required
+              [(ngModel)]="model.colour" name="size" #colourInput="ngModel">
+        <option *ngFor="let item of colourArray" [value]="item">{{item}}</option>
+      </select>
+      <div [hidden]="colourInput.valid || colourInput.pristine">
+        Please enter the desired colour
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!orderForm.form.valid || !model.colour || !model.size">Submit</button>
+  </form>
+</div>
