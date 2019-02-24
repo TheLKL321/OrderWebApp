@@ -41,6 +41,9 @@
     </div>
 
     <button type="submit" [disabled]="!orderForm.form.valid || !model.colour || !model.size">Submit</button>
+    <div [hidden]="!ifCartFull">
+      We can only ship a maximum of 15 products at once
+    </div>
   </form>
 
   <div>
