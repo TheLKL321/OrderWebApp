@@ -8,7 +8,6 @@ import {Colour, Order, Size} from '../order';
 })
 export class OrderFormComponent implements OnInit {
 
-  submitted = false;
   model = new Order('', null, null, null);
 
   sizeArray = Object.keys(Size)
@@ -19,12 +18,16 @@ export class OrderFormComponent implements OnInit {
     .filter(key => typeof Colour[key] !== 'number')
     .map(key => (Colour[key]));
 
+  orderArray = [];
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() {
+    this.orderArray.push(this.model);
+  }
 
 }
 
