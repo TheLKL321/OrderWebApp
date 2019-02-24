@@ -40,8 +40,11 @@
       </div>
     </div>
 
-    <button type="submit" [disabled]="!orderForm.form.valid || !model.colour || !model.size">Submit</button>
-    <div [hidden]="!ifCartFull">
+    <button type="submit" [disabled]="!orderForm.form.valid || !model.colour || !model.size || (orderArray.length >= 15)">
+      Submit
+    </button>
+
+    <div [hidden]="!(orderArray.length >= 15)">
       We can only ship a maximum of 15 products at once
     </div>
   </form>
@@ -56,11 +59,13 @@
         <th>Product size</th>
       </tr>
       </thead>
-      <tr *ngFor="let order of orderArray">
+      <tr *ngFor="let order of orderArray; let i = index">
+        <td>{{i + 1}}</td>
         <td>{{order.name}}</td>
         <td>{{order.age}}</td>
         <td>{{order.colour}}</td>
         <td>{{order.size}}</td>
+        <td><button type="button" (click)="deleteOrder(i)">X</button></td>
       </tr>
     </table>
   </div>

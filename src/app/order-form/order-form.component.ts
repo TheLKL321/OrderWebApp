@@ -20,18 +20,20 @@ export class OrderFormComponent implements OnInit {
 
   orderArray = [];
 
-  ifCartFull = false;
-
   constructor() { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    if (!this.ifCartFull) {
-      this.orderArray.push(this.model);
-      this.ifCartFull = this.orderArray.length === 15;
+    if (this.orderArray.length < 15) {
+      const temp = new Order(this.model.name, this.model.age, this.model.colour, this.model.size);
+      this.orderArray.push(temp);
     }
+  }
+
+  deleteOrder(i) {
+    this.orderArray.splice(i, 1);
   }
 
 }
