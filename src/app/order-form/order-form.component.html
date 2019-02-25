@@ -19,17 +19,6 @@
     </div>
 
     <div>
-      <label for="size">Size</label>
-      <select id="size" required
-              [(ngModel)]="model.size" name="size" #sizeInput="ngModel">
-        <option *ngFor="let item of sizeArray" [value]="item">{{item}}</option>
-      </select>
-      <div [hidden]="sizeInput.valid || sizeInput.pristine">
-        Please enter the desired size
-      </div>
-    </div>
-
-    <div>
       <label for="colour">Colour</label>
       <select id="colour" required
               [(ngModel)]="model.colour" name="size" #colourInput="ngModel">
@@ -37,6 +26,17 @@
       </select>
       <div [hidden]="colourInput.valid || colourInput.pristine">
         Please enter the desired colour
+      </div>
+    </div>
+
+    <div>
+      <label for="size">Size</label>
+      <select id="size" required
+              [(ngModel)]="model.size" name="size" #sizeInput="ngModel">
+        <option *ngFor="let item of sizeArray" [value]="item">{{item}}</option>
+      </select>
+      <div [hidden]="sizeInput.valid || sizeInput.pristine">
+        Please enter the desired size
       </div>
     </div>
 
@@ -71,6 +71,6 @@
   </div>
 
   <div>
-    <a routerLink="/summary">Go to summary</a>
+    <a (click)="goToSummary()" routerLink="/summary">Go to summary</a>
   </div>
 </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SummaryService} from '../summary.service';
+import {Colour, Order, Size} from '../order';
 
 @Component({
   selector: 'app-summary',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+  orderArray = [new Order('John Doe', 29, Colour.Red, Size.M)];
+
+  constructor(
+    private summaryService: SummaryService
+  ) { }
 
   ngOnInit() {
+    this.orderArray = this.summaryService.take();
   }
 
 }

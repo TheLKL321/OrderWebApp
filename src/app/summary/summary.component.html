@@ -1,3 +1,23 @@
 <p>
   summary works!
 </p>
+
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Product colour</th>
+      <th>Product size</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let order of orderArray; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{order.name}}</td>
+      <td>{{order.age}}</td>
+      <td>{{order.colour}}</td>
+      <td>{{order.size}}</td>
+    </tr>
+  </table>
+</div>
