@@ -26,6 +26,7 @@ export class OrderFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.orderArray = this.summaryService.take();
   }
 
   onSubmit() {
