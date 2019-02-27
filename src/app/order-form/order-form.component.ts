@@ -31,7 +31,7 @@ export class OrderFormComponent implements OnInit {
 
   onSubmit() {
     if (this.orderArray.length < 15) {
-      const temp = new Order(this.model.name, this.model.age, this.model.colour, this.model.size);
+      const temp = new Order(this.model.engraving, this.model.age, this.model.colour, this.model.size);
       this.orderArray.push(temp);
     }
   }

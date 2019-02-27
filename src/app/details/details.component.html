@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <label for="name">Name</label>
+    <input id="name" placeholder="Name" type="text" required
+           [(ngModel)]="model.name" name="name" #nameInput="ngModel">
+    <div [hidden]="(nameInput.valid || nameInput.pristine) && !confirmed">
+      Please enter your name
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" placeholder="Email" type="text" required
+           [(ngModel)]="model.email" name="email" #emailInput="ngModel">
+    <div [hidden]="(emailInput.valid || emailInput.pristine) && !confirmed">
+      Please enter your email
+    </div>
+  </div>
+
+  <button (click)="placeOrder()" [hidden]="confirmed" [disabled]="summaryService.empty()">Place order</button>
+
+  <div [hidden]="!confirmed">
+    Your order has been placed and will be delivered to a random address, thank you!
+  </div>
+
+</div>

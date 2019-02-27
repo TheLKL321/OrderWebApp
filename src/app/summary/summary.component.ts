@@ -8,8 +8,6 @@ import {SummaryService} from '../summary.service';
 })
 export class SummaryComponent implements OnInit {
 
-  placed = false;
-
   orderArray = [];
 
   constructor(
@@ -19,11 +17,4 @@ export class SummaryComponent implements OnInit {
   ngOnInit() {
     this.orderArray = this.summaryService.take();
   }
-
-  placeOrder() {
-    this.placed = true;
-    this.summaryService.clear();
-    this.orderArray = [];
-  }
-
 }

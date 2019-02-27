@@ -17,4 +17,8 @@ export class SummaryService {
   clear() {
     this.orderArray = [];
   }
+
+  empty() {
+    return this.orderArray.length === 0;
+  }
 }

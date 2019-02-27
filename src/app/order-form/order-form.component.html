@@ -1,11 +1,11 @@
 <div class="inputBoxes">
   <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
     <div>
-      <label for="name">Name</label>
-      <input id="name" placeholder="Name" type="text" required
-             [(ngModel)]="model.name" name="name" #nameInput="ngModel">
-      <div [hidden]="nameInput.valid || nameInput.pristine">
-        Please enter the name of the recipient
+      <label for="engraving">Engraving</label>
+      <input id="engraving" placeholder="Engraving" type="text" required
+             [(ngModel)]="model.engraving" name="engraving" #engravingInput="ngModel">
+      <div [hidden]="engravingInput.valid || engravingInput.pristine">
+        Please enter the desired engraving
       </div>
     </div>
 
@@ -53,7 +53,7 @@
     <table>
       <thead>
       <tr>
-        <th>Name</th>
+        <th>Engraving</th>
         <th>Age</th>
         <th>Product colour</th>
         <th>Product size</th>
@@ -61,7 +61,7 @@
       </thead>
       <tr *ngFor="let order of orderArray; let i = index">
         <td>{{i + 1}}</td>
-        <td>{{order.name}}</td>
+        <td>{{order.engraving}}</td>
         <td>{{order.age}}</td>
         <td>{{order.colour}}</td>
         <td>{{order.size}}</td>

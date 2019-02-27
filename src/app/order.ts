@@ -15,7 +15,7 @@ export enum Size {
 export class Order {
 
   constructor(
-    public name: string,
+    public engraving: string,
     public age: number,
     public colour: Colour,
     public size: Size,

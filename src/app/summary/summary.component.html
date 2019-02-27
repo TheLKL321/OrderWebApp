@@ -1,12 +1,8 @@
-<p>
-  summary works!
-</p>
-
 <div>
   <table>
     <thead>
     <tr>
-      <th>Name</th>
+      <th>Engraving</th>
       <th>Age</th>
       <th>Product colour</th>
       <th>Product size</th>
@@ -14,16 +10,15 @@
     </thead>
     <tr *ngFor="let order of orderArray; let i = index">
       <td>{{i + 1}}</td>
-      <td>{{order.name}}</td>
+      <td>{{order.engraving}}</td>
       <td>{{order.age}}</td>
       <td>{{order.colour}}</td>
       <td>{{order.size}}</td>
     </tr>
   </table>
 
-  <button (click)="placeOrder()" [disabled]="orderArray.length === 0">Place order</button>
-
-  <div [hidden]="!placed">
-    Your order has been placed, thank you!
+  <div>
+    <button [disabled]="orderArray.length === 0" routerLink="/details">Go to details</button>
   </div>
+
 </div>
