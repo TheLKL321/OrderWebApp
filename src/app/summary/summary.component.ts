@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {SummaryService} from '../summary.service';
-import {Colour, Order, Size} from '../order';
 
 @Component({
   selector: 'app-summary',
@@ -9,7 +8,9 @@ import {Colour, Order, Size} from '../order';
 })
 export class SummaryComponent implements OnInit {
 
-  orderArray = [new Order('John Doe', 29, Colour.Red, Size.M)];
+  placed = false;
+
+  orderArray = [];
 
   constructor(
     private summaryService: SummaryService
@@ -17,6 +18,12 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit() {
     this.orderArray = this.summaryService.take();
+  }
+
+  placeOrder() {
+    this.placed = true;
+    this.summaryService.clear();
+    this.orderArray = [];
   }
 
 }

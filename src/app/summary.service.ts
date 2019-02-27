@@ -13,4 +13,8 @@ export class SummaryService {
   take() {
     return this.orderArray;
   }
+
+  clear() {
+    this.orderArray = [];
+  }
 }
