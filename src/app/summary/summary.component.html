@@ -1,24 +1,24 @@
 <div>
-  <table>
-    <thead>
-    <tr>
-      <th>Engraving</th>
-      <th>Age</th>
-      <th>Product colour</th>
-      <th>Product size</th>
-    </tr>
-    </thead>
-    <tr *ngFor="let order of orderArray; let i = index">
-      <td>{{i + 1}}</td>
-      <td>{{order.engraving}}</td>
-      <td>{{order.age}}</td>
-      <td>{{order.colour}}</td>
-      <td>{{order.size}}</td>
-    </tr>
-  </table>
-
   <div>
-    <button [disabled]="orderArray.length === 0" routerLink="/details">Go to details</button>
+    <table>
+      <thead>
+      <tr>
+        <th>Engraving</th>
+        <th>Age</th>
+        <th>Product colour</th>
+        <th>Product size</th>
+      </tr>
+      </thead>
+      <tr *ngFor="let order of orderArray; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{order.engraving}}</td>
+        <td>{{order.age}}</td>
+        <td>{{order.colour}}</td>
+        <td>{{order.size}}</td>
+      </tr>
+    </table>
   </div>
+
+  <button [disabled]="orderArray.length === 0" routerLink="/details">Go to details</button>
 
 </div>

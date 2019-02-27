@@ -8,7 +8,7 @@ import {SummaryService} from '../summary.service';
 })
 export class SummaryComponent implements OnInit {
 
-  orderArray = [];
+  private orderArray = [];
 
   constructor(
     private summaryService: SummaryService

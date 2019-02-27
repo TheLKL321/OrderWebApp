@@ -9,17 +9,17 @@ import {SummaryService} from '../summary.service';
 })
 export class OrderFormComponent implements OnInit {
 
-  model = new Order('', null, null, null);
+  private model = new Order('', null, null, null);
 
-  sizeArray = Object.keys(Size)
+  private sizeArray = Object.keys(Size)
     .filter(key => typeof Size[key] !== 'number')
     .map(key => (Size[key]));
 
-  colourArray = Object.keys(Colour)
+  private colourArray = Object.keys(Colour)
     .filter(key => typeof Colour[key] !== 'number')
     .map(key => (Colour[key]));
 
-  orderArray = [];
+  private orderArray = [];
 
   constructor(
     private summaryService: SummaryService

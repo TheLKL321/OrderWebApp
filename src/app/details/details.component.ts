@@ -9,9 +9,9 @@ import {SummaryService} from '../summary.service';
 })
 export class DetailsComponent implements OnInit {
 
-  model = new Details(null, null);
+  private model = new Details(null, null);
 
-  confirmed = false;
+  private confirmed = false;
 
   constructor(
     private summaryService: SummaryService
