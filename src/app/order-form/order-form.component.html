@@ -72,4 +72,11 @@
 
   <button (click)="goToSummary()" [disabled]="orderArray.length === 0" routerLink="/summary">Go to summary</button>
 
+  <div>
+    Look at all of our happy customers:
+    <div *ngFor="let customer of data">
+      {{customer.name}} bought {{customer.amount}} products
+    </div>
+  </div>
+
 </div>

@@ -1,6 +1,8 @@
 import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
 import {Colour, Order, Size} from '../order';
 import {SummaryService} from '../summary.service';
+import {DataService} from '../data.service';
+import {Details} from '../details';
 
 @Component({
   selector: 'app-order-form',
@@ -21,12 +23,17 @@ export class OrderFormComponent implements OnInit {
 
   orderArray = [];
 
+  data: Details[];
+
   constructor(
-    private summaryService: SummaryService
+    private summaryService: SummaryService,
+    private dataService: DataService,
   ) { }
 
   ngOnInit() {
     this.orderArray = this.summaryService.take();
+    this.dataService.getData()
+      .subscribe(data => this.data = data);
   }
 
   onSubmit() {
