@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/product', pathMatch: 'full' },
   { path: 'product', component: OrderFormComponent },
   { path: 'summary', component: SummaryComponent },
-  { path: 'details', component: DetailsComponent }
+  { path: 'details', component: DetailsComponent },
 ];
 
 @NgModule({

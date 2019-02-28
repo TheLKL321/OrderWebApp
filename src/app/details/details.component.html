@@ -1,26 +1,35 @@
 <div>
-  <div>
-    <label for="name">Name</label>
-    <input id="name" placeholder="Name" type="text" required
-           [(ngModel)]="model.name" name="name" #nameInput="ngModel">
-    <div [hidden]="nameInput.valid || nameInput.pristine || confirmed">
-      Please enter your name
+  <form (ngSubmit)="placeOrder()" #orderForm="ngForm">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" placeholder="Name" type="text" required
+             [(ngModel)]="model.name" name="name" #nameInput="ngModel">
+      <div [hidden]="nameInput.valid || nameInput.pristine || confirmed">
+        Please enter your name
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label for="email">Email</label>
-    <input id="email" placeholder="Email" type="text" required
-           [(ngModel)]="model.email" name="email" #emailInput="ngModel">
-    <div [hidden]="emailInput.valid || emailInput.pristine || confirmed">
-      Please enter your email
+    <div>
+      <label for="email">Email</label>
+      <input id="email" placeholder="Email" type="text" required
+             [(ngModel)]="model.email" name="email" #emailInput="ngModel">
+      <div [hidden]="emailInput.valid || emailInput.pristine || confirmed">
+        Please enter your email
+      </div>
     </div>
-  </div>
 
-  <button (click)="placeOrder()" [hidden]="confirmed" [disabled]="summaryService.empty()">Place order</button>
+    <button type="submit" [hidden]="confirmed" [disabled]="!orderForm.form.valid || summaryService.empty()">Place order</button>
+
+  </form>
 
   <div [hidden]="!confirmed">
     Your order has been placed and will be delivered to a random address, thank you!
+  </div>
+
+  <button [hidden]="!confirmed" routerLink="/product">Go back to homepage</button>
+
+  <div *ngFor="let dat of data">
+    {{dat.id}}, {{dat.name}}, {{dat.email}}, {{dat.amount}}
   </div>
 
 </div>

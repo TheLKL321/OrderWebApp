@@ -19,7 +19,7 @@ export class OrderFormComponent implements OnInit {
     .filter(key => typeof Colour[key] !== 'number')
     .map(key => (Colour[key]));
 
-  private orderArray = [];
+  orderArray = [];
 
   constructor(
     private summaryService: SummaryService
