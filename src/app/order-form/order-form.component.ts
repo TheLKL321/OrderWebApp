@@ -11,13 +11,13 @@ import {Details} from '../details';
 })
 export class OrderFormComponent implements OnInit {
 
-  private model = new Order('', null, null, null);
+  public model = new Order('', null, null, null);
 
-  private sizeArray = Object.keys(Size)
+  public sizeArray = Object.keys(Size)
     .filter(key => typeof Size[key] !== 'number')
     .map(key => (Size[key]));
 
-  private colourArray = Object.keys(Colour)
+  public colourArray = Object.keys(Colour)
     .filter(key => typeof Colour[key] !== 'number')
     .map(key => (Colour[key]));
 

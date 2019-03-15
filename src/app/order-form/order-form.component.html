@@ -1,62 +1,74 @@
-<div class="inputBoxes">
-  <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
-    <div>
-      <label for="engraving">Engraving</label>
-      <input id="engraving" placeholder="Engraving" type="text" required
-             [(ngModel)]="model.engraving" name="engraving" #engravingInput="ngModel">
-      <div [hidden]="engravingInput.valid || engravingInput.pristine">
-        Please enter the desired engraving
+<div>
+  <div class="chunk form-box drop-shadow bottom right barrel-rounded">
+    <form id="orderForm" (ngSubmit)="onSubmit()" #orderForm="ngForm">
+      <div>
+        <label for="engraving">Engraving</label>
+        <input class="depth" id="engraving" placeholder="Engraving" type="text" required
+               [(ngModel)]="model.engraving" name="engraving" #engravingInput="ngModel">
+        <div [hidden]="engravingInput.valid || engravingInput.pristine">
+          Please enter the desired engraving
+        </div>
+      </div>
+
+      <div>
+        <label for="age">Age</label>
+        <input class="depth" id="age" placeholder="Age" type="number" min="13" max="150" required
+               [(ngModel)]="model.age" name="age" #ageInput="ngModel">
+        <div [hidden]="ageInput.valid || ageInput.pristine">
+          Please enter the age of the recipient
+        </div>
+      </div>
+
+      <div>
+        <label for="colour">Colour</label>
+        <select class="depth" id="colour" required
+                [(ngModel)]="model.colour" name="size" #colourInput="ngModel">
+          <option *ngFor="let item of colourArray" [value]="item">{{item}}</option>
+        </select>
+        <div [hidden]="colourInput.valid || colourInput.pristine">
+          Please enter the desired colour
+        </div>
+      </div>
+
+      <div>
+        <label for="size">Size</label>
+        <select class="depth" id="size" required
+                [(ngModel)]="model.size" name="size" #sizeInput="ngModel">
+          <option *ngFor="let item of sizeArray" [value]="item">{{item}}</option>
+        </select>
+        <div [hidden]="sizeInput.valid || sizeInput.pristine">
+          Please enter the desired size
+        </div>
+      </div>
+
+      <button class="metro" type="submit"
+               [disabled]="!orderForm.form.valid || !model.colour || !model.size || (orderArray.length >= 15)">
+        Submit
+      </button>
+
+      <div [hidden]="!(orderArray.length >= 15)">
+        We can only ship a maximum of 15 products at once
+      </div>
+    </form>
+
+    <div id="customers">
+      Look at all of our happy customers:
+      <div *ngFor="let customer of data">
+        {{customer.name}} bought {{customer.amount}} products
       </div>
     </div>
+  </div>
 
-    <div>
-      <label for="age">Age</label>
-      <input id="age" placeholder="Age" type="number" min="13" max="150" required
-             [(ngModel)]="model.age" name="age" #ageInput="ngModel">
-      <div [hidden]="ageInput.valid || ageInput.pristine">
-        Please enter the age of the recipient
-      </div>
-    </div>
-
-    <div>
-      <label for="colour">Colour</label>
-      <select id="colour" required
-              [(ngModel)]="model.colour" name="size" #colourInput="ngModel">
-        <option *ngFor="let item of colourArray" [value]="item">{{item}}</option>
-      </select>
-      <div [hidden]="colourInput.valid || colourInput.pristine">
-        Please enter the desired colour
-      </div>
-    </div>
-
-    <div>
-      <label for="size">Size</label>
-      <select id="size" required
-              [(ngModel)]="model.size" name="size" #sizeInput="ngModel">
-        <option *ngFor="let item of sizeArray" [value]="item">{{item}}</option>
-      </select>
-      <div [hidden]="sizeInput.valid || sizeInput.pristine">
-        Please enter the desired size
-      </div>
-    </div>
-
-    <button type="submit" [disabled]="!orderForm.form.valid || !model.colour || !model.size || (orderArray.length >= 15)">
-      Submit
-    </button>
-
-    <div [hidden]="!(orderArray.length >= 15)">
-      We can only ship a maximum of 15 products at once
-    </div>
-  </form>
-
-  <div>
+  <div class="chunk">
     <table>
       <thead>
       <tr>
-        <th>Engraving</th>
+        <th><div class="n"></div></th>
+        <th class="w">Engraving</th>
         <th>Age</th>
         <th>Product colour</th>
         <th>Product size</th>
+        <th><div class="b"></div></th>
       </tr>
       </thead>
       <tr *ngFor="let order of orderArray; let i = index">
@@ -65,17 +77,12 @@
         <td>{{order.age}}</td>
         <td>{{order.colour}}</td>
         <td>{{order.size}}</td>
-        <td><button type="button" (click)="deleteOrder(i)">X</button></td>
+        <td><button class="metro square-button" type="button" (click)="deleteOrder(i)">X</button></td>
       </tr>
     </table>
-  </div>
-
-  <button (click)="goToSummary()" [disabled]="orderArray.length === 0" routerLink="/summary">Go to summary</button>
-
-  <div>
-    Look at all of our happy customers:
-    <div *ngFor="let customer of data">
-      {{customer.name}} bought {{customer.amount}} products
+    <div>
+      <button class="metro summary-button"
+              (click)="goToSummary()" [disabled]="orderArray.length === 0" routerLink="/summary">Go to summary</button>
     </div>
   </div>
 

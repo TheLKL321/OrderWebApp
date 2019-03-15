@@ -17,4 +17,5 @@ export class SummaryComponent implements OnInit {
   ngOnInit() {
     this.orderArray = this.summaryService.take();
   }
+
 }
