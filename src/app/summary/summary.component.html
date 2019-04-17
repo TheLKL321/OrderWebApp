@@ -1,5 +1,4 @@
 <div>
-  <div>
     <table>
       <thead>
       <tr>
@@ -18,8 +17,6 @@
         <td>{{order.size}}</td>
       </tr>
     </table>
-  </div>
 
-  <button [disabled]="orderArray.length === 0" routerLink="/details">Go to details</button>
-
+    <button class="metro" [disabled]="orderArray.length === 0" routerLink="/details">Go to details</button>
 </div>

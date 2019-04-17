@@ -11,34 +11,6 @@
 
 input, select {
   margin-top: 0.8em;
-}
-
-table {
-  width: 50%;
-  display: inline-block;
-  border-spacing: 0;
-}
-
-tr:nth-child(even) {
-  background: #CCC
-}
-
-tr:nth-child(odd) {
-  background: #FFF
-}
-
-tr:last-child td {
-  border: none;
-}
-
-th, td {
-  border-bottom: 1px solid #000000;
-  border-collapse: collapse;
-  padding-left: 0.7em;
-  padding-right: 0.7em;
-}
-
-input, select {
   display: inline-block;
 }
 
@@ -46,6 +18,12 @@ div {
   text-align: center;
 }
 
+table {
+  width: 50%;
+  display: inline-block;
+}
+
+/* classes, because they may be of use in the future */
 .chunk {
   margin-bottom: 2em;
 }
@@ -58,8 +36,8 @@ div {
 }
 
 .summary-button {
-  display: inline-block;
-  position: relative;
+  display: block;
+  margin: auto;
 }
 
 .w {

@@ -10,6 +10,29 @@ h1 {
   margin: 0;
 }
 
+table {
+  border-spacing: 0;
+}
+
+tr:nth-child(even) {
+  background: #CCC
+}
+
+tr:nth-child(odd) {
+  background: #FFF
+}
+
+tr:last-child td {
+  border: none;
+}
+
+th, td {
+  border-bottom: 1px solid #000000;
+  border-collapse: collapse;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+}
+
 button {
   background-color: #8ec12d;
   color: white;
